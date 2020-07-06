@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {EmployeeService} from '../../shared/employee.service';
+import {Employee} from '../../employee';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router,private employeeService:EmployeeService) { }
 
   ngOnInit(): void {
+  }
+
+  newEmployee(event:any){
+    event.preventDefault();
+    this.employeeService.setter(new Employee());
+    this.router.navigate(['/createUpdate']); 
+
   }
 
 }

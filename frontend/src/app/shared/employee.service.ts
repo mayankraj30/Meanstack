@@ -6,12 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EmployeeService {
+  private employee: Employee
   private baseUrl:string = "http://localhost:8080";
   private header = new HttpHeaders().set('Content-type','application/json');
 
   constructor(private http :HttpClient) { }
 
-  createEmployee(employee:Employee){
+  createEmployee(employee:Employee):Observable<any>{
 
     return this.http.post(this.baseUrl + '/create',employee,{headers:this.header})
   }
@@ -32,6 +33,14 @@ export class EmployeeService {
   deleteEmployee(id:string){
 
     return this.http.delete(this.baseUrl + '/delete/'+id,{headers:this.header})
+  }
+
+  setter(employee:Employee){
+    this.employee = employee
+  }
+
+  getter(){
+    return this.employee
   }
 
 

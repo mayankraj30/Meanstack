@@ -1,2 +1,28 @@
-<p>list works!</p>
-<h1>list</h1>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Employees Data</h4>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Designation</th>
+                    <th>Operations</th>
+                </tr>
+            </thead>
+            <tbody *ngIf = employees>
+                <tr *ngFor = "let employee of employees">
+                    <td>{{employee._id}}</td>
+                    <td>{{employee.name}}</td>
+                    <td>{{employee.gender}}</td>
+                    <td>{{employee.age}}</td>
+                    <td>{{employee.designation}}</td>
+                    <td><button class="btn btn-danger" (click) = "doDelete(employee)">Delete</button>
+                    <button class="btn btn-primary" (click) = "doUpdate(employee)">Update</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

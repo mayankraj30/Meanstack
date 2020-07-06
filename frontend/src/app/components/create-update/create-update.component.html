@@ -1,1 +1,25 @@
-<p>create-update works!</p>
+<div class="container">
+    <form >
+        <div class="form-group">
+            <label for="id">Id</label>
+            <input type="text" name="_id" class="from-control" [(ngModel)]="employee._id">
+        </div>
+        <div class="form-group">
+            <label for="Name">Name</label>
+            <input type="text" name="name" class="from-control" [(ngModel)]="employee.name" >
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <input type="text" name="gender" class="from-control" [(ngModel)]="employee.gender">
+        </div>
+        <div class="form-group">
+            <label for="id">Age</label>
+            <input type="number" name="age" class="from-control" [(ngModel)]="employee.age" >
+        </div>
+        <div class="form-group">
+            <label for="designation">Designation</label>
+            <input type="text" name="designation" class="from-control" [(ngModel)]="employee.designation" >
+        </div>
+        <button class="btn btn-primary" (click) = "createOrUpdate()">Submit</button>
+    </form>
+</div>
